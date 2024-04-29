@@ -1,18 +1,20 @@
 // Variables
 let button = document.querySelector('button');
 
-let gradeSelect = document.querySelector('.grade');
-let gradeList = [
-  { text: 'Low-Grade', value: 'low' },
-  { text: 'Standard-Grade', value: 'standard' },
-  { text: 'High-Grade', value: 'high' }
-];
 let materialSelect = document.querySelector('.material');
 let materialList = [
   { text: 'Cold Iron', value: 'cold-iron' },
   { text: 'Silver', value: 'silver' },
   { text: 'Adamantine', value: 'adamantine' }
 ];
+
+let gradeSelect = document.querySelector('.grade');
+let gradeList = [
+  { text: 'Low-Grade', value: 'low' },
+  { text: 'Standard-Grade', value: 'standard' },
+  { text: 'High-Grade', value: 'high' }
+];
+
 let itemSelect = document.querySelector('.item');
 
 let data = {
@@ -65,17 +67,30 @@ let craft = document.querySelector('.craft');
 let amount = document.querySelector('.amount');
 
 // Select Options
+materialList.forEach(option =>
+    materialSelect.add(
+      new Option(option.text, option.value)
+    )
+  );
+  
 gradeList.forEach(option =>
   gradeSelect.add(
     new Option(option.text, option.value)
   )
 );
 
-materialList.forEach(option =>
-  materialSelect.add(
-    new Option(option.text, option.value)
-  )
-);
+materialSelect.onchange = function() {
+    let mat = materialSelect.value
+    let gradeValues = Object.keys(data[mat])
+    for (item in gradeSelect.options) {
+        gradeSelect.remove(item)
+    } 
+    gradeValues.forEach(option =>
+        gradeSelect.add(
+            new Option(option, option)
+        )
+    );
+}
 
 // Button
 button.onclick = function() {
