@@ -9,14 +9,15 @@
   <body>
     <main>
       <div class="options">
-        <input class="bulk" type="number">
+        <label for="bulk">Object Bulk</label>
+        <input class="bulk" type="number" id="bulk" min="0">
         <select class="material"></select>
         <select class="grade"></select>
         <select class="item">
           <option value="weapon">Weapon</option>
           <option value="armor">Armor</option>
-          <option value="object">Object</option>
-          <option value="magic-item">Magic Item</option>
+          <!-- <option value="object">Object</option>
+          <option value="magic-item">Magic Item</option> -->
         </select>
         <button>Calculate</button>
       </div>
@@ -34,6 +35,7 @@
           <td class="amount"></td>
         </tr>
       </table>
+      <div>(Costs listed in GP)</div>
     </main>
       
   </body>

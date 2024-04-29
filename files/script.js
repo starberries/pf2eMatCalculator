@@ -5,6 +5,7 @@ let materialSelect = document.querySelector('.material');
 let materialList = [
   { text: 'Cold Iron', value: 'cold-iron' },
   { text: 'Silver', value: 'silver' },
+//   { text: 'Sisterstone', value: 'sisterstone'},
   { text: 'Adamantine', value: 'adamantine' }
 ];
 
@@ -44,6 +45,20 @@ let data = {
     "high": {
       "weapon": 9000,
       "armor": 20000
+    },
+  },
+  "sisterstone" : {
+    "low" : {
+        "weapon": 70,
+        "armor" : 140
+    },
+    "standard" : {
+        "weapon" : 1200,
+        "armor" : 1000
+    },
+    "high" : {
+        "weapon" : 32000,
+        "armor" : 19500
     }
   },
   "adamantine": {
