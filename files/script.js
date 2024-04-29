@@ -47,10 +47,6 @@ let data = {
     }
   },
   "adamantine": {
-    "low": {
-      "weapon": undefined,
-      "armor": undefined
-    },
     "standard": {
       "weapon": 1400,
       "armor": 1600
@@ -81,16 +77,18 @@ gradeList.forEach(option =>
 
 materialSelect.onchange = function() {
     let mat = materialSelect.value
-    let gradeValues = Object.keys(data[mat])
-    for (item in gradeSelect.options) {
-        gradeSelect.remove(item)
-    } 
-    gradeValues.forEach(option =>
+    let grades = Object.keys(data[mat])
+
+    for (option in gradeSelect.options) {
+        gradeSelect.remove(option)
+    }
+    grades.forEach((option) => {
+        let gradeValue = gradeList.find(o => o.value === option)
         gradeSelect.add(
-            new Option(option, option)
+            new Option(gradeValue.text, gradeValue.value)
         )
-    );
-}
+    })
+};
 
 // Button
 button.onclick = function() {
